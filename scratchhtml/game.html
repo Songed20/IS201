@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Story Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .story {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+            min-height: 150px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Story Generator</h1>
+        <p>Select a character, location, and event to generate a random story!</p>
+        
+        <label for="character">Choose a character:</label>
+        <select id="character">
+            <option value="a pirate">A pirate</option>
+            <option value="a wizard">A wizard</option>
+            <option value="a robot">A robot</option>
+            <option value="an alien">An alien</option>
+            <option value="a dragon">A dragon</option>
+        </select>
+
+        <label for="location">Choose a location:</label>
+        <select id="location">
+            <option value="a mysterious forest">A mysterious forest</option>
+            <option value="a haunted mansion">A haunted mansion</option>
+            <option value="a futuristic city">A futuristic city</option>
+            <option value="an underwater cave">An underwater cave</option>
+            <option value="a distant planet">A distant planet</option>
+        </select>
+
+        <label for="event">Choose an event:</label>
+        <select id="event">
+            <option value="discovered a hidden treasure">discovered a hidden treasure</option>
+            <option value="was cursed by a strange artifact">was cursed by a strange artifact</option>
+            <option value="saved the world from an alien invasion">saved the world from an alien invasion</option>
+            <option value="had an epic battle with a rival">had an epic battle with a rival</option>
+            <option value="found the secret to eternal life">found the secret to eternal life</option>
+        </select>
+
+        <button onclick="generateStory()">Generate Story</button>
+
+        <div id="story" class="story"></div>
+    </div>
+
+    <script>
+        function generateStory() {
+            const character = document.getElementById("character").value;
+            const location = document.getElementById("location").value;
+            const event = document.getElementById("event").value;
+
+            // Create a random story
+            const storyOptions = [
+                `One day, ${character} was walking through ${location} when they suddenly ${event}. It was an adventure they would never forget.`,
+                `${character} had always heard rumors about ${location}, but never believed them until they ${event}. What a bizarre experience!`,
+                `In the heart of ${location}, ${character} faced an unexpected challenge. After a thrilling encounter, they eventually ${event}.`,
+                `During a quiet day in ${location}, ${character} stumbled upon a mysterious situation. To their surprise, they ended up ${event}.`,
+                `The legendary ${character} arrived at ${location}, where an astonishing event awaited. Soon, they found themselves ${event}.`
+            ];
+
+            // Randomly pick a story from the options
+            const randomStory = storyOptions[Math.floor(Math.random() * storyOptions.length)];
+
+            // Display the story
+            document.getElementById("story").textContent = randomStory;
+        }
+    </script>
+</body>
+</html>
+
